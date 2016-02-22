@@ -1,23 +1,14 @@
 import {Component} from 'angular2/core';
-import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Http} from 'angular2/http';
-import {Github} from '../../services/github';
+import {RouteParams} from "angular2/router";
 
 @Component({
-  selector: 'repo-detail',
-  templateUrl: 'app/components/repo-detail/repo-detail.html',
-  styleUrls: ['app/components/repo-detail/repo-detail.css'],
-  providers: [],
-  directives: [ROUTER_DIRECTIVES],
-  pipes: []
+    selector: 'repo-detail',
+    directives: [],
+    template : `<h1 *ngIf="repo">user details for {{repo}}</h1>`
 })
-export class RepoDetail {
-  repoDetails = {};
-  constructor(routeParams:RouteParams, github: Github) {
-    github.getRepoForOrg(routeParams.get('org'),routeParams.get('name'))
-      .subscribe(repoDetails => {
-        this.repoDetails = repoDetails;
-      });
-  }
-
+export class RepoDetailComponent {
+    repo :string;
+    constructor(routeParams:RouteParams) {
+        this.repo = routeParams.get('repo');
+    }
 }
