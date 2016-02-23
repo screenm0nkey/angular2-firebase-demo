@@ -1,28 +1,30 @@
 import {Injectable} from 'angular2/core';
-import {Http, URLSearchParams} from 'angular2/http';
+import {Http, URLSearchParams, Response} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/combineLatest';
 
 @Injectable()
 export class Github {
 	constructor(private http: Http){}
 
-	getOrg(org:string){
-		return this.makeRequest(`orgs/${org}`);
-	}
+	getRepos(username){
+        return this.http.get(`https://api.github.com/users/${username}/repos`);
+    }
 
-	getReposForOrg(org:string){
-		return this.makeRequest(`orgs/${org}/repos`);
-	}
+	getUserInfo(username){
+        return this.http.get(`https://api.github.com/users/${username}`);
+    }
 
-	getRepoForOrg(org:string, repo:string){
-		return this.makeRequest(`repos/${org}/${repo}`);
-	}
-
-	private makeRequest(path: string){
-		let params = new URLSearchParams();
-		params.set('per_page', '100');
-		let url = `https://api.github.com/${path}`;
-		return this.http.get(url, {search: params})
-			.map((res) => res.json());
-	}
+    getGithubInfo(username){
+        return this.getRepos(username)
+            .combineLatest(this.getUserInfo(username))
+            .map(function (res:Array<Response>) {
+                return {
+                    repos: res[0].json(),
+                    bio: res[1].json()
+                }
+            })
+    }
 }
+
+

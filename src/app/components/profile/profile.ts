@@ -10,9 +10,13 @@ import {RepoDetailComponent} from '../repo-detail/repo-detail'
     directives: [SearchBarComponent, ROUTER_DIRECTIVES],
     pipes: [],
     template : `
-        <search-bar></search-bar>
-        <hr>
-        <router-outlet></router-outlet>
+        <div class="col-sm-12">
+            <search-bar></search-bar>
+        </div>
+        <div class="col-sm-12">
+            <router-outlet></router-outlet>
+        </div>
+
     `
 })
 @RouteConfig([

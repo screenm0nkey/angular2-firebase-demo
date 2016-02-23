@@ -13,19 +13,23 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
   ],
-
   resolve: {
     extensions: ['', '.ts', '.js']
   },
-
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.ts$/,  loader: 'ts-loader' },
+      { test: /\.css$/, loader: 'style!css' }
     ],
     noParse: [ path.join(__dirname, 'node_modules', 'angular2', 'bundles') ]
   },
-
+  devtool: 'source-map',
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    port : 8080,
+    inline : true,
+    colors : true,
+    progress:true,
+    contentBase : 'src'
   }
 };
