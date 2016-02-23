@@ -3,19 +3,22 @@ import {RouteParams} from "angular2/router";
 import {Github} from '../../services/github';
 import {ReposComponent} from '../github/repos';
 import {UserBioComponent} from '../github/user-bio';
+import {FirebaseComponent} from '../firebase/firebase';
 
 @Component({
     selector: 'repo-detail',
-    directives: [UserBioComponent, ReposComponent],
-    template : `
+    directives: [UserBioComponent, ReposComponent, FirebaseComponent],
+    template: `
         <div class="row col-sm-12" *ngIf="repo">
             <div class="row col-sm-4">
-            <github-bio [bio]="bio"></github-bio>
+                <github-bio [bio]="bio"></github-bio>
             </div>
             <div class="row col-sm-4">
                 <github-repos [repos]="repos"></github-repos>
             </div>
-            <div class="row col-sm-4">hello</div>
+            <div class="row col-sm-4">
+                <firebase [repo]="repo"></firebase>
+            </div>
         </div>
     `
 })
