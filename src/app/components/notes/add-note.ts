@@ -1,18 +1,29 @@
-import {Component} from 'angular2/core';
+import {Component, Input, OnInit} from 'angular2/core';
+import {FirebaseService} from "../../services/firebase";
 
 @Component({
     selector: 'add-note',
     template: `
-    <form class="form-inline">
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputName2" placeholder="Add Note" #input>
-        </div>
-        <button type="submit" class="btn btn-default" (click)="addNote(input)">Add Note</button>
-    </form>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Add Note" #input>
+            </div>
+            <button type="submit" class="btn btn-default" (click)="addNote(input)">Add Note</button>
+        </form>
     `,
 })
-export class AddNoteComponent {
+export class AddNoteComponent implements OnInit {
+    @Input() repoName:string;
+    ref : any;
+
+    constructor(private _fireBase : FirebaseService) {}
+
+    ngOnInit(){
+        this.ref = this._fireBase.connect().child(this.repoName);
+    }
+
     addNote(input:HTMLInputElement) {
+        this.ref.push(input.value);
         input.value = '';
     }
 }
