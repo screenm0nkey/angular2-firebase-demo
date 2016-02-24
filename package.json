@@ -1,24 +1,23 @@
 {
-  "name": "angular2-seed",
+  "name": "angular2-firebase-demo",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "This sample application demonstrates use of the angular2-firebase package.",
   "scripts": {
     "start": "webpack-dev-server --display-error-details --display-cached"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "https://github.com/screenm0nkey/angular2-firebase-demo"
   },
   "keywords": [
     "Angular2",
     "angular2-seed"
   ],
-  "author": "Rob Wormald <robwormald@gmail.com>",
+  "author": "Nick Lowman <digital@gnicklowman.co.uk>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
+    "url": "https://github.com/screenm0nkey/angular2-firebase-demo/issues"
   },
-  "homepage": "https://github.com/angular/angular2-seed#readme",
   "devDependencies": {
     "copyfiles": "^0.2.1",
     "css-loader": "^0.23.1",
