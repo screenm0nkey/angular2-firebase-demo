@@ -5,7 +5,7 @@ import {OnInit} from "angular2/core";
     selector: 'github-bio',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-        <h4>User Repos for {{bio.login}}</h4>
+        <h4>User Bio for {{bio.login}}</h4>
         <ul class="list-group">
             <li class="list-group-item">
                 <img [src]="bio.avatar_url" class="img-rounded img-responsive"/>
