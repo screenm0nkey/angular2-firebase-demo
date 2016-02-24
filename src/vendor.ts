@@ -6,3 +6,4 @@ import 'angular2/http';
 import 'angular2/router';
 
 import 'firebase'
+import 'lodash'

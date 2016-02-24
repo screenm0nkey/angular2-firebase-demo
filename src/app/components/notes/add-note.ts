@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from 'angular2/core';
 import {FirebaseService} from "../../services/firebase";
+import * as Firebase from 'firebase';
 
 @Component({
     selector: 'add-note',
@@ -14,7 +15,7 @@ import {FirebaseService} from "../../services/firebase";
 })
 export class AddNoteComponent implements OnInit {
     @Input() repoName:string;
-    ref : any;
+    ref : Firebase;
 
     constructor(private _fireBase : FirebaseService) {}
 
