@@ -3,11 +3,11 @@ import {RouteParams} from "angular2/router";
 import {Github} from '../../services/github';
 import {ReposComponent} from '../github/repos';
 import {UserBioComponent} from '../github/user-bio';
-import {FirebaseComponent} from '../firebase/firebase';
+import {NotesComponent} from '../notes/notes';
 
 @Component({
     selector: 'repo-detail',
-    directives: [UserBioComponent, ReposComponent, FirebaseComponent],
+    directives: [UserBioComponent, ReposComponent, NotesComponent],
     template: `
         <div class="row col-sm-12" *ngIf="repo">
             <div class="row col-sm-4">

@@ -15,7 +15,7 @@ import {FirebaseService} from "../../services/firebase";
         </ul>
     `
 })
-export class FirebaseComponent implements OnInit{
+export class NotesComponent implements OnInit{
     @Input('repo') repoName:string;
     notes: Observable<string>;
 
