@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from 'angular2/core';
+import {Component, Input, OnInit, ChangeDetectionStrategy} from 'angular2/core';
 import {FirebaseService} from "../../services/firebase";
 import * as Firebase from 'firebase';
 
 @Component({
     selector: 'add-note',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <form class="form-inline" [ngStyle]="{'margin-bottom': '10px'}">
             <div class="form-group">

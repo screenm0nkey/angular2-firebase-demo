@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 
 @Component({
     selector: 'firebase',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     directives: [NgWhen, AddNoteComponent],
     providers : [FirebaseService],
     template : `
