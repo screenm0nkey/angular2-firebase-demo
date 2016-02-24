@@ -9,8 +9,8 @@ import {Router} from "angular2/router";
     template: `
     <form class="form-inline">
     <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="Search github" #input>
+
+    <input type="text" class="form-control" id="exampleInputName2" placeholder="Github Username" #input>
     </div>
     <button type="submit" class="btn btn-default" (click)="search(input)">Search</button>
     </form>
