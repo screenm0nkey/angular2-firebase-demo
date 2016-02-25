@@ -5,7 +5,6 @@ It's based on Tyler McGinnis' React app. I watched his tutorial and decided to b
 
 [React version](https://github.com/tylermcginnis/github-notetaker-egghead)
 
-`Note: There's a typescript error for the lodash module. You can just ignore it for now.`
 
 It is based on:
 * Angular 2

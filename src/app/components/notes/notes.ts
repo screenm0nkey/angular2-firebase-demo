@@ -4,7 +4,9 @@ import {observableFirebaseObject, observableFirebaseArray, NgWhen} from 'angular
 import {FirebaseService} from "../../services/firebase";
 import {AddNoteComponent} from "./add-note";
 import 'rxjs/add/operator/filter';
-import * as _ from 'lodash';
+
+//import * as _ from 'lodash';
+let _ = require('lodash'); // stops TypeScript compile errors;
 
 @Component({
     selector: 'firebase',
