@@ -7,6 +7,8 @@ import 'rxjs/add/operator/combineLatest';
 export class Github {
 	constructor(private http: Http){}
 
+    public defaultGithubUser : string = 'screenm0nkey';
+
 	getRepos(username){
         return this.http.get(`https://api.github.com/users/${username}/repos`);
     }
@@ -15,6 +17,7 @@ export class Github {
         return this.http.get(`https://api.github.com/users/${username}`);
     }
 
+    // combineLatest is similar to q.all()
     getGithubInfo(username){
         return this.getRepos(username)
             .combineLatest(this.getUserInfo(username))

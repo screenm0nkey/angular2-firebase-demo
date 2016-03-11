@@ -35,6 +35,4 @@ export class NotesComponent implements OnInit{
         this.notes$ = sub$.map(_.toArray).map((arr)=>_.compact(arr));
         this.notes$.subscribe((x)=>console.log(x))
     }
-
-
 }

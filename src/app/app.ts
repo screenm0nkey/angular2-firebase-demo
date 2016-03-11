@@ -5,11 +5,11 @@ import {ProfileComponent} from './components/profile/profile';
 import {Github} from './services/github';
 
 @Component({
-  selector: 'seed-app',
-  directives: [ROUTER_DIRECTIVES],
-  providers : [Github],
-  styleUrls: ['app/app.css'],
-  template : `
+    selector: 'seed-app',
+    directives: [ROUTER_DIRECTIVES],
+    providers: [Github],
+    styleUrls: ['app/app.css'],
+    template: `
 
     <nav class="navbar navbar-light bg-faded col-sm-12">
     <a class="navbar-brand" href="#">Angular2 Note Taker</a>
@@ -18,7 +18,7 @@ import {Github} from './services/github';
          <a class="nav-link" [routerLink]="['/Home']">Home</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link" [routerLink]="['/Profile/RepoDetail', {repo: ''}]">Profile</a>
+         <a class="nav-link" [routerLink]="['/Profile/RepoDetail', {repo: defaultGithubUser}]">Profile</a>
       </li>
     </ul>
     </nav>
@@ -29,9 +29,13 @@ import {Github} from './services/github';
   `
 })
 @RouteConfig([
-  new Route({ path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
-  new Route({ path: '/profile/...', component: ProfileComponent, name: 'Profile'}),
+    new Route({path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
+    new Route({path: '/profile/...', component: ProfileComponent, name: 'Profile'}),
 ])
 export class SeedApp {
-  constructor() {}
+    defaultGithubUser:string;
+
+    constructor(github : Github) {
+        this.defaultGithubUser = github.defaultGithubUser;
+    }
 }

@@ -33,7 +33,7 @@ export class RepoDetailComponent {
         if (this.repo) {
             github.getGithubInfo(this.repo).subscribe(
                 (data)=>{
-                    console.log(data)
+                    console.log(data);
                     this.repos = data.repos;
                     this.bio = data.bio;
                 },
